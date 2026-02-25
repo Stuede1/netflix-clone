@@ -3,6 +3,7 @@ import './Login.css'
 import { login, signup } from '../../firebase'
 import netflix_spinner from '../../assets/netflix_spinner.gif'
 import logo from '../../assets/logo.png'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const [signState, setSignState] = useState("Sign In")
@@ -10,7 +11,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  
+  const navigate = useNavigate();
 
   const user_auth = async (event)=>{
     event.preventDefault();
@@ -24,7 +25,7 @@ const Login = () => {
     setLoading(false);
     if(success) {
       // Handle successful authentication (e.g., redirect to home)
-      window.location.href = '/';
+      navigate("/");
     }
   }
 
