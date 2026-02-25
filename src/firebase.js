@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "",
+  apiKey: "AIzaSyAgQtMb5lgQhPQ2sIcu_wIBH-RRM72MGUk",
   authDomain: "netflix-clone-d01e2.firebaseapp.com",
   projectId: "netflix-clone-d01e2",
   storageBucket: "netflix-clone-d01e2.firebasestorage.app",
@@ -31,19 +31,24 @@ const signup = async (name, email, password) => {
             authProvider: "local",
             email,
         });
+        toast.success("Account created successfully!");
+        return true;
     } catch (error) {
         console.error("Error signing up:", error);
         toast.error(error.code.split('/')[1].split('-').join(' '));
+        return false;
     }
 }
 const login = async (email, password) => {
     try {
         await signInWithEmailAndPassword(auth, email, password);
+        toast.success("Login successful!");
+        return true;
     } catch (error) {
         console.error("Error logging in:", error);
         toast.error(error.code.split('/')[1].split('-').join(' '));
+        return false;
     }
-    
 }
 const logout = ()=>{
     signOut(auth);

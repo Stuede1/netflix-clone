@@ -15,12 +15,17 @@ const Login = () => {
   const user_auth = async (event)=>{
     event.preventDefault();
     setLoading(true);
+    let success = false;
     if(signState==="Sign In"){
-      await login(email, password);
+      success = await login(email, password);
     }else{
-      await signup(name, email, password);
+      success = await signup(name, email, password);
     }
     setLoading(false);
+    if(success) {
+      // Handle successful authentication (e.g., redirect to home)
+      window.location.href = '/';
+    }
   }
 
 
