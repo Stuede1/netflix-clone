@@ -1,5 +1,6 @@
 {
   "name": "netflix-clone",
+  "homepage": "https://stuede1.github.io/netflix-clone/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,6 +12,7 @@
   },
   "dependencies": {
     "firebase": "^12.9.0",
+    "gh-pages": "^6.3.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-firebase-hooks": "^5.1.1",
